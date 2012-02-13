@@ -6,10 +6,10 @@ import java.io.IOException
 import java.util.Collection
 import org.apache.commons.io.filefilter.FileFilterUtils
 import java.util.ArrayList
-
 import scala.collection.JavaConversions._
+import org.apache.commons.io.IOCase
 
-class PhotoLister extends DirectoryWalker[File](FileFilterUtils.suffixFileFilter(".jpg"), 9) {
+class PhotoLister extends DirectoryWalker[File](FileFilterUtils.suffixFileFilter(".jpg", IOCase.INSENSITIVE), 9) {
 
    override def handleFile(file: File, depth: Int, results: Collection[File]) {
      results.add(file)

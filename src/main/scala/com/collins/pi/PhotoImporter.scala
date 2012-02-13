@@ -48,11 +48,13 @@ class PhotoImporter(fromDir: String, toDir: String, logger: String => Unit) {
     val em = new ExifMetadata(f)
     var seq = 1
     while (seq < 10) {
-      nameFile(f, em, 1) match {
+      nameFile(f, em, seq) match {
         case NameDuplicate() =>
           seq += 1
+          logger(f.getName() + " is a duplicate name. Trying with seq #" + seq)
         case ValidFilename(dest) =>
           FileUtils.copyFile(f, dest)
+          logger(f.getName() + " copied to " + dest.getAbsolutePath())
           return
         case TrueDuplicate() =>
           return
@@ -67,7 +69,7 @@ class PhotoImporter(fromDir: String, toDir: String, logger: String => Unit) {
 
     var filename = df.format(em.datetime) 
     if (seqNum > 1) {
-      filename += "-" + seqNum
+      filename += "-" + seqNum.toString()
     } 
 
     filename += "." + FilenameUtils.getExtension(f.getName())
