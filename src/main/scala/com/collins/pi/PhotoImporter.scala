@@ -1,14 +1,14 @@
 package com.collins.pi.utils
 
 import java.io.File
-import scala.util.matching.Regex
-import org.apache.commons.io.IOUtils
-import java.io.FileInputStream
-import java.io.FileOutputStream
-import org.apache.commons.io.FileUtils
 import java.text.SimpleDateFormat
-import org.apache.commons.io.FilenameUtils
+
+import scala.annotation.implicitNotFound
+
+import org.apache.commons.io.{FilenameUtils, FileUtils}
+
 import com.collins.pi.PhotoLister
+
 
 abstract class FilenameResult
 case class TrueDuplicate extends FilenameResult
