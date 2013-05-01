@@ -1,13 +1,10 @@
-package com.collins.pi.utils
+package com.collins.pi
 
 import java.io.File
 import java.text.SimpleDateFormat
-
 import scala.annotation.implicitNotFound
-
 import org.apache.commons.io.{FilenameUtils, FileUtils}
-
-import com.collins.pi.PhotoLister
+import com.collins.pi.utils.ExifMetadata
 
 
 abstract class FilenameResult

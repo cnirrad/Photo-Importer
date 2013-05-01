@@ -2,7 +2,7 @@ name := "photo importer"
 
 version := "0.0.1"
 
-scalaVersion := "2.9.1"
+scalaVersion := "2.10.1"
 
 seq(com.github.retronym.SbtOneJar.oneJarSettings: _*)
 
